@@ -6,11 +6,15 @@ import java.util.Locale;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 public class SalesOrderCreate 
@@ -22,7 +26,9 @@ public class SalesOrderCreate
 		this.driver=new ChromeDriver();
 		driver.get("https://bimbo-co-01-qa.ivycpg.com/web/DMS");
 		driver.manage().window().maximize();
-		
+		//instance for calling method
+		SalesOrderCreate so=new SalesOrderCreate();
+
 		//date config
 		LocalDateTime dt=LocalDateTime.now();
 		DateTimeFormatter yearFormat=DateTimeFormatter.ofPattern("YYYY");
@@ -54,20 +60,32 @@ public class SalesOrderCreate
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.id("iContent")));
 		
 		//wait and enter sales person 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("SalesPerson")));
-		driver.findElement(By.id("SalesPerson")).click();//click
-		driver.findElement(By.id("SalesPerson")).sendKeys(Keys.ARROW_DOWN);
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("SalesPerson")));
+		so.waitAndClick(driver,driver.findElement(By.id("SalesPerson")));
+		action.keyDown(Keys.ARROW_DOWN).perform();
 
 		//wait for suggestion to load
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(.,'014214_3000')])[1]")));
+		for(long period=System.currentTimeMillis()+5000;period>System.currentTimeMillis();)
+		{
+		try
+			{
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(.,'014214_3000')])[1]")));
+				break;
+			}
+		catch(TimeoutException e)
+			{
+				driver.findElement(By.id("SalesPerson")).sendKeys(Keys.ARROW_DOWN);
+			}
+		}
 		
 		//select the salesperson
 		action.moveToElement(driver.findElement(By.xpath("(//a[contains(.,'014214_3000')])[1]"))).doubleClick().perform();
 		
 		//wait and enter retailer
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='Retailer']")));
-		driver.findElement(By.xpath("//input[@id='Retailer']")).click();//click
-		driver.findElement(By.xpath("//input[@id='Retailer']")).sendKeys(Keys.ARROW_DOWN);
+		so.waitAndClick(driver,driver.findElement(By.xpath("//input[@id='Retailer']")));
+		action.keyDown(Keys.ARROW_DOWN).perform();
 		// driver.findElement(By.xpath("//input[@id='Retailer']")).sendKeys("DEMORET1");
 
 		//wait for suggestion to loads
@@ -77,18 +95,7 @@ public class SalesOrderCreate
 		action.moveToElement(driver.findElement(By.xpath("(//a[contains(.,'DEMORET1')])[1]"))).doubleClick().perform();
 		
 		//wait and select the delivery date
-		for(long period=System.currentTimeMillis()+10000;period>System.currentTimeMillis();)
-		{
-		try
-			{
-				driver.findElement(By.xpath("//input[@id='DeliveryDate']")).click();
-				break;
-			}
-		catch(org.openqa.selenium.ElementClickInterceptedException e)
-			{
-				Thread.sleep(500);
-			}
-		}
+		so.waitAndClick(driver, driver.findElement(By.xpath("//input[@id='DeliveryDate']")));
 		driver.findElement(By.xpath("//select[@class='ui-datepicker-year']/option[.='"+year+"']")).click();
 		driver.findElement(By.xpath("//select[@class='ui-datepicker-month']/option[.='"+month+"']")).click();
 		driver.findElement(By.xpath("//table[@class='ui-datepicker-calendar']//a[.='"+date+"']")).click();
@@ -97,24 +104,27 @@ public class SalesOrderCreate
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='divShipAddressId']/div[@class='mt-select']/a")));
 		driver.findElement(By.xpath("//div[@id='divShipAddressId']/div[@class='mt-select']/a")).click();
 		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[contains(.,'VEREDA')]"))));
-		action.moveToElement(driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[contains(.,'VEREDA')]"))).click().perform();
-		
+		driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[contains(.,'VEREDA')]")).click();
+
 		//select payment method
 		driver.findElement(By.xpath("//div[@id='divPaymentMethodId']/div[@class='mt-select']")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='divPaymentMethodId']/descendant::li[2]")));
 		driver.findElement(By.xpath("//div[@id='divPaymentMethodId']/descendant::li[2]")).click();
 		
 		//enter SKU and select
-		driver.findElement(By.xpath("//input[@id='SearchName']")).sendKeys("2ss");//input
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//aundefined[@tabindex='-1']")));
+		driver.findElement(By.xpath("//input[@id='SearchName']")).sendKeys("2ss");
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//ul/li/aundefined"),0));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//aundefined[@tabindex='-1']")));
 		driver.findElement(By.xpath("//aundefined[@tabindex='-1']")).click();//click
 		
 		//enter SKU qty
 		driver.findElement(By.xpath("//tbody[@class='grid-data-container']/tr/td[7]/input")).sendKeys("7");
+		driver.findElement(By.xpath("//input[@id='SearchName']")).click();
 		
 		//enter SKU and select
 		driver.findElement(By.xpath("//input[@id='SearchName']")).sendKeys("7ss");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//aundefined[@tabindex='-1']")));
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//ul/li/aundefined"),0));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//aundefined[@tabindex='-1']")));
 		driver.findElement(By.xpath("//aundefined[@tabindex='-1']")).click();
 		
 		//enter SKU qty
@@ -135,5 +145,16 @@ public class SalesOrderCreate
 		//close the print
 		je.executeScript("arguments[0].click();", driver.findElement(By.xpath("//button[@id='btnPrint']/following-sibling::button")));
 		driver.quit();
+	}
+	public void waitAndClick(WebDriver driver, WebElement element)
+	{
+		Wait <WebDriver> wait=new FluentWait<WebDriver>(driver)
+		.withTimeout(Duration.ofSeconds(5))
+		.pollingEvery(Duration.ofMillis(300))
+		.ignoring(org.openqa.selenium.ElementClickInterceptedException.class)
+		.ignoring(org.openqa.selenium.StaleElementReferenceException.class)
+		.ignoring(TimeoutException.class);
+		wait.until(webDriver->{	element.click();
+		return true;});
 	}
 }
