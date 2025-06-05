@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SheetConditionHandling",
+            "request": "launch",
+            "mainClass": "rough.SheetConditionHandling",
+            "projectName": "2.0"
+        },
+        {
+            "type": "java",
+            "name": "SheetHandling",
+            "request": "launch",
+            "mainClass": "rough.SheetHandling",
+            "projectName": "2.0"
+        },
+        {
+            "type": "java",
             "name": "TestIteration",
             "request": "launch",
             "mainClass": "AutomationTest.TestIteration",

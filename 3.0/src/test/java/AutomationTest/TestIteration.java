@@ -8,7 +8,7 @@ public class TestIteration
         try 
         {
             SalesOrderCreate soc=new SalesOrderCreate();
-            for(int i=0;i<30;i++)
+            for(int i=1;i<=30;i++)
             {
                 soc.orderCreation();
                 x++;

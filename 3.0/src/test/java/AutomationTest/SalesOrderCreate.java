@@ -48,7 +48,7 @@ public class SalesOrderCreate
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		
 		//open sales management menu
-		driver.findElement(By.xpath("//a[@title='Sales Management']")).click();//click
+		driver.findElement(By.xpath("//a[@title='Sales Management']")).click();
 		
 		//move to sales order create sub menu and open
 		WebElement element=driver.findElement(By.cssSelector("a[title='Sales Order Create']"));
@@ -56,14 +56,14 @@ public class SalesOrderCreate
 		action.moveToElement(element).click().perform();
 		
 		//wait and switch to i content
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.id("iContent")));
 		
 		//wait and enter sales person 
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("SalesPerson")));
 		so.waitAndClick(driver,driver.findElement(By.id("SalesPerson")));
-		action.keyDown(Keys.ARROW_DOWN).perform();
+		driver.findElement(By.id("SalesPerson")).sendKeys(Keys.ARROW_DOWN);
 
 		//wait for suggestion to load
 		for(long period=System.currentTimeMillis()+5000;period>System.currentTimeMillis();)
@@ -115,7 +115,7 @@ public class SalesOrderCreate
 		driver.findElement(By.xpath("//input[@id='SearchName']")).sendKeys("2ss");
 		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//ul/li/aundefined"),0));
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//aundefined[@tabindex='-1']")));
-		driver.findElement(By.xpath("//aundefined[@tabindex='-1']")).click();//click
+		so.waitAndClick(driver,driver.findElement(By.xpath("//aundefined[@tabindex='-1']")));
 		
 		//enter SKU qty
 		driver.findElement(By.xpath("//tbody[@class='grid-data-container']/tr/td[7]/input")).sendKeys("7");
@@ -125,7 +125,7 @@ public class SalesOrderCreate
 		driver.findElement(By.xpath("//input[@id='SearchName']")).sendKeys("7ss");
 		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//ul/li/aundefined"),0));
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//aundefined[@tabindex='-1']")));
-		driver.findElement(By.xpath("//aundefined[@tabindex='-1']")).click();
+		so.waitAndClick(driver,driver.findElement(By.xpath("//aundefined[@tabindex='-1']")));
 		
 		//enter SKU qty
 		driver.findElement(By.xpath("//tbody[@class='grid-data-container']/tr[2]/td[7]/input")).sendKeys("8");
