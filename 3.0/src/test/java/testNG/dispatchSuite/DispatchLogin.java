@@ -97,4 +97,10 @@ public class DispatchLogin
             e.printStackTrace();
         }
     }
+
+    @Test(dependsOnMethods="salesOrderScreenLoad")
+    public void salesOrderCreation()
+    {
+        
+    }
 }
