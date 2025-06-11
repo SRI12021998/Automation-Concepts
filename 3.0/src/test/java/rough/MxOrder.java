@@ -1,4 +1,4 @@
-package AutomationTest;
+package rough;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-public class SalesOrderCreate 
+public class MxOrder 
 {
 	private WebDriver driver;
 	private WebDriverWait wait;
@@ -24,19 +24,14 @@ public class SalesOrderCreate
 	private String year;
 	private String month;
 	private String date;
-	private JavascriptExecutor je;
-	SalesOrderCreate()
+	MxOrder()
 	{
 		//browser chrome
 		this.driver=new ChromeDriver();
 		//wait config
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		//action 
 		this.action = new Actions(driver);
-
-		//javascriptexecutor
-		je=(JavascriptExecutor)driver;
-
 		//date config
 		LocalDateTime dt=LocalDateTime.now();
 		
@@ -49,19 +44,19 @@ public class SalesOrderCreate
 	public void orderCreation() throws InterruptedException
 	{
 		//opens portal
-		driver.get("https://bimbo-co-01-qa.ivycpg.com/web/DMS");
+		driver.get("https://bimbo03-mx-qa.ivycpg.com/web/DMS/Welcome#");
 		driver.manage().window().maximize();
 		
 		//login as dispatch user
-		driver.findElement(By.id("UserName")).sendKeys("251307");
-		driver.findElement(By.name("Password")).sendKeys("1");
+		driver.findElement(By.id("UserName")).sendKeys("BIEP_DISP");
+		driver.findElement(By.name("Password")).sendKeys("2");
 		driver.findElement(By.id("Login")).click();//click
 		
 		//wait for page to load
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		
-		//open sales management menu
-		driver.findElement(By.xpath("//a[@title='Sales Management']")).click();
+		//open sales order menu
+		driver.findElement(By.xpath("//a[@title='Sales Order']")).click();
 		
 		//move to sales order create sub menu and open
 		WebElement element=driver.findElement(By.cssSelector("a[title='Sales Order Create']"));
@@ -81,7 +76,7 @@ public class SalesOrderCreate
 		{
 		try
 			{
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(.,'014214_3000')])[1]")));
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(.,'BIEP_PRE_ROUTE1')])[1]")));
 				break;
 			}
 		catch(TimeoutException e)
@@ -91,19 +86,18 @@ public class SalesOrderCreate
 		}
 		
 		//select the salesperson
-		action.moveToElement(driver.findElement(By.xpath("(//a[contains(.,'014214_3000')])[1]"))).doubleClick().perform();
+		action.moveToElement(driver.findElement(By.xpath("(//a[contains(.,'BIEP_PRE_ROUTE1')])[1]"))).doubleClick().perform();
 		
 		//wait and enter retailer
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='Retailer']")));
 		waitAndClick(driver.findElement(By.xpath("//input[@id='Retailer']")));
 		action.keyDown(Keys.ARROW_DOWN).perform();
-		// driver.findElement(By.xpath("//input[@id='Retailer']")).sendKeys("DEMORET1");
 
 		//wait for suggestion to loads
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(.,'DEMORET1')])[1]")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(.,'BIEP_CREDIT - BIEP_CREDIT1')])[1]")));
 		
 		//select the retailer
-		action.moveToElement(driver.findElement(By.xpath("(//a[contains(.,'DEMORET1')])[1]"))).doubleClick().perform();
+		action.moveToElement(driver.findElement(By.xpath("(//a[contains(.,'BIEP_CREDIT - BIEP_CREDIT1')])[1]"))).doubleClick().perform();
 		
 		//wait and select the delivery date
 		waitAndClick(driver.findElement(By.xpath("//input[@id='DeliveryDate']")));
@@ -114,20 +108,24 @@ public class SalesOrderCreate
 		//wait and select shipping address
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='divShipAddressId']/div[@class='mt-select']/a")));
 		driver.findElement(By.xpath("//div[@id='divShipAddressId']/div[@class='mt-select']/a")).click();
-		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[contains(.,'VEREDA')]"))));
-		driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[contains(.,'VEREDA')]")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[contains(.,'BIEP')]"))));
+		driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[contains(.,'BIEP')]")).click();
 
-		//select payment method
-		driver.findElement(By.xpath("//div[@id='divPaymentMethodId']/div[@class='mt-select']")).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='divPaymentMethodId']/descendant::li[2]")));
-		driver.findElement(By.xpath("//div[@id='divPaymentMethodId']/descendant::li[2]")).click();
+		// //select payment method
+		// driver.findElement(By.xpath("//div[@id='divPaymentMethodId']/div[@class='mt-select']")).click();
+		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='divPaymentMethodId']/descendant::li[2]")));
+		// driver.findElement(By.xpath("//div[@id='divPaymentMethodId']/descendant::li[2]")).click();
 		
 		//add sku
-		skuInput("2SS",5);
-		skuInput("7SS",7);
-		skuInput("1313",9);
+		skuInput("3_BCL_BIEP",5);
+		// Thread.sleep(2000);
+        skuInput("3_RIC_BIEP",6);
+		// Thread.sleep(2000);
+		skuInput("3_BIM_BIEP",7);
+		Thread.sleep(2000);
 		
 		//click on submit order button
+		JavascriptExecutor je=(JavascriptExecutor)driver;
 		je.executeScript("arguments[0].click();", driver.findElement(By.xpath("//a[contains(text(),'Submit Order')]")));
 		
 		//wait and capture the message
@@ -145,17 +143,16 @@ public class SalesOrderCreate
 	}
 	public void waitAndClick(WebElement element)
 	{
-		Wait <WebDriver> fluentWait=new FluentWait<WebDriver>(driver)
-		.withTimeout(Duration.ofSeconds(15))
+		Wait <WebDriver> wait=new FluentWait<WebDriver>(driver)
+		.withTimeout(Duration.ofSeconds(5))
 		.pollingEvery(Duration.ofMillis(300))
 		.ignoring(org.openqa.selenium.ElementClickInterceptedException.class)
 		.ignoring(org.openqa.selenium.StaleElementReferenceException.class)
-		.ignoring(org.openqa.selenium.ElementNotInteractableException.class)
 		.ignoring(TimeoutException.class);
-		fluentWait.until(webDriver->{	element.click();
+		wait.until(webDriver->{	element.click();
 		return true;});
 	}
-	public void skuInput(String skuCode, int qty) throws InterruptedException
+	public boolean skuInput(String skuCode, int qty) throws InterruptedException
 	{
 		//enter SKU and select
 		driver.findElement(By.xpath("//input[@id='SearchName']")).sendKeys(skuCode);
@@ -165,8 +162,8 @@ public class SalesOrderCreate
 
 		//enter SKU qty
 		driver.findElement(By.xpath("//tbody[@class='grid-data-container']/tr/td[contains(.,'"+skuCode+"')]/parent::tr/td[7]/input")).sendKeys(String.valueOf(qty));
-		driver.findElement(By.xpath("//tbody[@class='grid-data-container']/tr/td[contains(.,'"+skuCode+"')]/parent::tr/td[7]/input")).sendKeys(Keys.TAB);
-		action.moveToElement(driver.findElement(By.xpath("//div[@id='soHeader']"))).click().perform();
+		driver.findElement(By.xpath("//input[@id='SearchName']")).click();
+		return true;
 	}
 	public void closeBrowser()
 	{

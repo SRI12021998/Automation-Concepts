@@ -7,9 +7,9 @@ public class TestIteration
         int x=0;
         try 
         {
-            SalesOrderCreate soc=new SalesOrderCreate();
             for(int i=1;i<=30;i++)
             {
+                SalesOrderCreate soc=new SalesOrderCreate();
                 soc.orderCreation();
                 x++;
             }
@@ -19,7 +19,12 @@ public class TestIteration
             e.printStackTrace();
             System.out.println("Failed at "+x+" iteration");
         }
-      
+        // finally
+        // {
+        //     //close the browser
+		//     soc.closeBrowser();
+        // }
+        
     }
     
 }

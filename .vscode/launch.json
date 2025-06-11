@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SkuData",
+            "request": "launch",
+            "mainClass": "testNG.dispatchSuite.SkuData",
+            "projectName": "2.0"
+        },
+        {
+            "type": "java",
             "name": "SheetConditionHandling",
             "request": "launch",
             "mainClass": "rough.SheetConditionHandling",
