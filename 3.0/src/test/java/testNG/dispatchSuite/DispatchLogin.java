@@ -64,6 +64,7 @@ public class DispatchLogin
     public void marketLinkCheck()
     {
         driver.get("file:///D:/WORKSPACE/test_links.html");
+		driver.manage().window().maximize();
         String url=driver.findElement(By.xpath("//a[.='CO QA']")).getAttribute("href");
         HttpURLConnection connection;
         try 
