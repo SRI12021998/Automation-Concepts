@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ClaimApproval",
+            "request": "launch",
+            "mainClass": "rough.ClaimApproval",
+            "projectName": "2.0"
+        },
+        {
+            "type": "java",
+            "name": "CookieExample",
+            "request": "launch",
+            "mainClass": "cookie.CookieExample",
+            "projectName": "2.0"
+        },
+        {
+            "type": "java",
             "name": "SkuData",
             "request": "launch",
             "mainClass": "testNG.dispatchSuite.SkuData",

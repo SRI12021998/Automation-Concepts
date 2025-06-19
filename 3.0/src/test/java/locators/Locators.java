@@ -39,7 +39,9 @@ public class Locators
 		driver.findElement(By.partialLinkText("EC")).click();
 		Thread.sleep(2000);
 		
+
 		/*
+		 * cssSelector
 		 * tag#id
 		 * tag.classname
 		 * tag[attribute name='attribute value']

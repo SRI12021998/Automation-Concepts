@@ -74,36 +74,32 @@ public class SalesOrderCreate
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("SalesPerson")));
 		waitAndClick(driver.findElement(By.id("SalesPerson")));
-		driver.findElement(By.id("SalesPerson")).sendKeys(Keys.ARROW_DOWN);
-
-		//wait for suggestion to load
-		for(long period=System.currentTimeMillis()+5000;period>System.currentTimeMillis();)
-		{
+		driver.findElement(By.id("SalesPerson")).sendKeys("014214_7777");
 		try
-			{
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(.,'014214_3000')])[1]")));
-				break;
-			}
-		catch(TimeoutException e)
-			{
-				driver.findElement(By.id("SalesPerson")).sendKeys(Keys.ARROW_DOWN);
-			}
+		{
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(.,'014214_7777')]")));
+		}
+		catch (Exception e)
+		{
+			driver.findElement(By.id("SalesPerson")).clear();
+			driver.findElement(By.id("SalesPerson")).sendKeys("014214_7777");
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(.,'014214_7777')]")));
+			System.out.println("Tried after exception");
 		}
 		
 		//select the salesperson
-		action.moveToElement(driver.findElement(By.xpath("(//a[contains(.,'014214_3000')])[1]"))).doubleClick().perform();
+		action.moveToElement(driver.findElement(By.xpath("(//a[contains(.,'014214_7777')])[1]"))).doubleClick().perform();
 		
 		//wait and enter retailer
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='Retailer']")));
 		waitAndClick(driver.findElement(By.xpath("//input[@id='Retailer']")));
 		action.keyDown(Keys.ARROW_DOWN).perform();
-		// driver.findElement(By.xpath("//input[@id='Retailer']")).sendKeys("DEMORET1");
 
 		//wait for suggestion to loads
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(.,'DEMORET1')])[1]")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(.,'SUPERMERCADO MERCA Z CHIPICHAPE')])[1]")));
 		
 		//select the retailer
-		action.moveToElement(driver.findElement(By.xpath("(//a[contains(.,'DEMORET1')])[1]"))).doubleClick().perform();
+		action.moveToElement(driver.findElement(By.xpath("(//a[contains(.,'SUPERMERCADO MERCA Z CHIPICHAPE')])[1]"))).doubleClick().perform();
 		
 		//wait and select the delivery date
 		waitAndClick(driver.findElement(By.xpath("//input[@id='DeliveryDate']")));
@@ -114,17 +110,20 @@ public class SalesOrderCreate
 		//wait and select shipping address
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='divShipAddressId']/div[@class='mt-select']/a")));
 		driver.findElement(By.xpath("//div[@id='divShipAddressId']/div[@class='mt-select']/a")).click();
-		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[contains(.,'VEREDA')]"))));
-		driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[contains(.,'VEREDA')]")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[2]"))));
+		driver.findElement(By.xpath("//div[@id='divShipAddressId']/div/ul/li[2]")).click();
 
-		//select payment method
-		driver.findElement(By.xpath("//div[@id='divPaymentMethodId']/div[@class='mt-select']")).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='divPaymentMethodId']/descendant::li[2]")));
-		driver.findElement(By.xpath("//div[@id='divPaymentMethodId']/descendant::li[2]")).click();
+		//select payment method if cash retailer
+		if (driver.findElement(By.xpath("//div[@id='divPaymentMethodId']")).isDisplayed())
+		{
+			driver.findElement(By.xpath("//div[@id='divPaymentMethodId']/div[@class='mt-select']")).click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='divPaymentMethodId']/descendant::li[2]")));
+			driver.findElement(By.xpath("//div[@id='divPaymentMethodId']/descendant::li[2]")).click();
+		}
 		
 		//add sku
-		skuInput("2SS",5);
-		skuInput("7SS",7);
+		skuInput("0120",5);
+		skuInput("0981",7);
 		skuInput("1313",9);
 		
 		//click on submit order button
@@ -152,6 +151,7 @@ public class SalesOrderCreate
 		.ignoring(org.openqa.selenium.StaleElementReferenceException.class)
 		.ignoring(org.openqa.selenium.ElementNotInteractableException.class)
 		.ignoring(TimeoutException.class);
+		
 		fluentWait.until(webDriver->{	element.click();
 		return true;});
 	}

@@ -1,13 +1,8 @@
 package testNG.dispatchSuite;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
-
-import javax.print.DocFlavor.STRING;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -18,7 +13,7 @@ import org.testng.annotations.Test;
 public class SkuData 
     {
     @Test
-    public HashMap<String, Integer> skuDetails()
+    public HashMap <String,Integer> skuDetails()
     {
         Workbook wb=null;
         FileInputStream fis=null;
@@ -38,7 +33,15 @@ public class SkuData
                 }
                 Cell product=row.getCell(0);
                 Cell quantity=row.getCell(1);
-                sku.put(product.getStringCellValue(), (int)quantity.getNumericCellValue());
+                
+                switch (product.getCellType())
+                {
+                    case STRING : sku.put(product.getStringCellValue(), (int)quantity.getNumericCellValue());
+                    break;
+
+                    case NUMERIC : sku.put(String.valueOf((long)product.getNumericCellValue()), (int)quantity.getNumericCellValue());
+                    break;
+                }
             }
         } 
         catch (Exception e) 
