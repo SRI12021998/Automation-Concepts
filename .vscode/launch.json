@@ -6,9 +6,15 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "Tets",
             "request": "launch",
             "mainClass": "rough.Tets",
+=======
+            "name": "ClaimApprovalPRI",
+            "request": "launch",
+            "mainClass": "rough.ClaimApprovalPRI",
+>>>>>>> ca59d144b8124b3e569e1c33cfae0a72aa15c3fd
             "projectName": "2.0"
         },
         {
