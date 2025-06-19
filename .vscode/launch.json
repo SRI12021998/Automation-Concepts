@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ClaimApprovalPRI",
+            "request": "launch",
+            "mainClass": "rough.ClaimApprovalPRI",
+            "projectName": "2.0"
+        },
+        {
+            "type": "java",
             "name": "ClaimApproval",
             "request": "launch",
             "mainClass": "rough.ClaimApproval",
