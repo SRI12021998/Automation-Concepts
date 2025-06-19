@@ -8,17 +8,17 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.testng.annotations.Test;
 
 public class SkuData 
     {
-    @Test
+
     public HashMap <String,Integer> skuDetails()
     {
+        System.out.println("Working Directory: " + System.getProperty("user.dir"));
         Workbook wb=null;
         FileInputStream fis=null;
         HashMap <String,Integer> sku=new HashMap<>();
-        File file=new File("D:\\VS Local repo\\Automation-Concepts\\3.0\\src\\test\\java\\data\\DataSheet.xlsx");
+        File file = new File("src/test/java/data/DataSheet.xlsx");
         try 
         {
             fis=new FileInputStream(file);

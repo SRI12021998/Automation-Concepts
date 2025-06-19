@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Tets",
+            "request": "launch",
+            "mainClass": "rough.Tets",
+            "projectName": "2.0"
+        },
+        {
+            "type": "java",
             "name": "ClaimApproval",
             "request": "launch",
             "mainClass": "rough.ClaimApproval",

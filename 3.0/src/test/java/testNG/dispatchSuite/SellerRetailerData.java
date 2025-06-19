@@ -2,8 +2,6 @@ package testNG.dispatchSuite;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.ArrayList;
-
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -15,7 +13,7 @@ public class SellerRetailerData
     public String retailer;
     public void sellerRetailerDetails()
     {
-        File file=new File("D:\\VS Local repo\\Automation-Concepts\\3.0\\src\\test\\java\\data\\DataSheet.xlsx");
+        File file=new File("src/test/java/data/DataSheet.xlsx");
         try 
         {
             FileInputStream fis=new FileInputStream(file);

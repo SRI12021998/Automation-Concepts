@@ -19,7 +19,7 @@ public class Credentials
    
     public void credentialsFetch(String user) 
     {
-        File file=new File("D:\\VS Local repo\\Automation-Concepts\\3.0\\src\\test\\java\\data\\DataSheet.xlsx");
+        File file=new File("src/test/java/data/DataSheet.xlsx");
         int targetCol=0;
         int targetRow=0;
         Workbook wb=null;
