@@ -1,0 +1,90 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="CompleteTestSuite" verbose="1" parallel="none" thread-count="1" 
+       configfailurepolicy="continue" preserve-order="true" allow-return-values="false" 
+       group-by-instances="false" data-provider-thread-count="10" object-factory="com.example.MyObjectFactory"
+       parent-module="com.example.parent" guice-stage="DEVELOPMENT">
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="environment" value="staging"/>
+    
+    <listeners>
+        <listener class-name="com.example.MyTestListener"/>
+        <listener class-name="com.example.MyReporterListener"/>
+    </listeners>
+    
+    <packages>
+        <package name="com.example.tests.*"/>
+        <package name="com.example.integration.*"/>
+    </packages>
+    
+    <method-selectors>
+        <method-selector>
+            <selector-class name="com.example.MyMethodSelector" priority="1"/>
+            <script language="beanshell"><![CDATA[
+                return method.getName().startsWith("test");
+            ]]></script>
+        </method-selector>
+    </method-selectors>
+    
+    <test name="RegressionTests" preserve-order="true" parallel="methods" thread-count="5" 
+          time-out="10000" enabled="true" skipfailedinvocationcounts="false" 
+          junit="false" group-by-instances="false">
+        
+        <parameter name="dbUrl" value="jdbc:mysql://localhost/testdb"/>
+        
+        <groups>
+            <define name="all">
+                <include name="smoke"/>
+                <include name="regression"/>
+            </define>
+            
+            <run>
+                <include name="regression"/>
+                <exclude name="wip"/>
+                <exclude name="broken"/>
+            </run>
+            
+            <dependencies>
+                <group name="ui-tests" depends-on="login-tests"/>
+                <group name="checkout-tests" depends-on="cart-tests"/>
+            </dependencies>
+        </groups>
+        
+        <classes>
+            <class name="com.example.tests.LoginTests">
+                <methods>
+                    <include name="testValidLogin"/>
+                    <exclude name="testInvalidLogin.*"/>
+                    <include name="test.*" invocation-numbers="1 3-5"/>
+                </methods>
+            </class>
+            
+            <class name="com.example.tests.CheckoutTests"/>
+            <class name="com.example.tests.SearchTests"/>
+        </classes>
+    </test>
+    
+    <test name="SmokeTests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        
+        <packages>
+            <package name="com.example.smoketests.*"/>
+        </packages>
+    </test>
+    
+    <test name="DataDrivenTests">
+        <classes>
+            <class name="com.example.datatests.DataProviderTests">
+                <methods>
+                    <parameter name="dataset" value="large"/>
+                    <include name="testWithLargeData"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

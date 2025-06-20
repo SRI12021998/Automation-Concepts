@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="parameterSuite">
+    <test name="parameterTest">
+        <parameter name="login" value="BIEP_DISP"/>
+        <parameter name="password" value="2"/>
+        <classes>
+            <class name="AutomationTest.MxOrder"/>
+        </classes>
+    </test>
+</suite>

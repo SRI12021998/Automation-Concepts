@@ -1,4 +1,4 @@
-package rough;
+package bankscripts;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
-public class LoanApproval 
+public class ClaimApproval 
 {
 	public static void main(String[] args) throws InterruptedException 
 	{
@@ -19,7 +19,7 @@ public class LoanApproval
 		String userName=scn.next();
 		System.out.println("Enter password");
 		String Password=scn.next();
-		scn.nextLine();
+        scn.nextLine();
 		System.out.println("Enter pacs name correctly in uppercase");
 		String pacsName=scn.nextLine();
 		System.out.println("Starting Auto approval please wait...");
@@ -27,7 +27,8 @@ public class LoanApproval
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://fasalrin.gov.in/login");
 		driver.manage().window().maximize();
-		
+		Actions action=new Actions(driver);
+
 		//login using credentials
 		driver.findElement(By.name("username")).sendKeys(userName);
 		driver.findElement(By.name("loginPwd")).sendKeys(Password);
@@ -43,9 +44,15 @@ public class LoanApproval
 		//open dashboard menu
 		driver.findElement(By.xpath("(//a[@title='Dashboard'])[1]")).click();
 		
+        //click on claim applications tab
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.findElement(By.xpath("//a[.='Claim Applications']")).click();
+
+        
 		//click on view details of pending loan
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.findElement(By.xpath("//p[contains(.,'Applications pending')]/following-sibling::button")).click();
+        Thread.sleep(2000);
+		// waitAndClick(driver.findElement(By.xpath("//p[contains(.,'Applications pending')]/following-sibling::button")), driver);
+        driver.findElement(By.xpath("//p[contains(.,'Applications pending')]/following-sibling::button")).click();
 		
 		//select branch/pacs dropown
 		Select pacs=new Select(driver.findElement(By.name("branchOrPacs")));
@@ -67,8 +74,8 @@ public class LoanApproval
 		{
 			//move to review button
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			WebElement review=driver.findElement(By.xpath("//div[@class='loanApplicationTable']/descendant::tbody/tr[1]/td[8]/div/button"));
-			Actions action=new Actions(driver);
+			WebElement review=driver.findElement(By.xpath("//div[@class='claimApplicationListTable']/descendant::tbody/tr[1]/td[11]/div/button"));
+			
 			action.moveToElement(review).perform();
 			
 			//click on review button
@@ -91,9 +98,11 @@ public class LoanApproval
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 			driver.findElement(By.xpath("//button[.='OK']")).click();
 		}
-		driver.findElement(By.xpath("(//span[.='Logout'])[1]")).click();
+        action.moveToElement(driver.findElement(By.xpath("(//span[.='Logout'])[1]"))).perform();
 		Thread.sleep(2000);
 		System.out.println("Operation completed");
 		driver.quit();
 	}
+
 }
+

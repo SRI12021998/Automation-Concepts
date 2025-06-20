@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class GRNLoad 
 {
-    @Test
+    @Test(dependsOnGroups = "A", alwaysRun = false)
     public void loadGRN()
     {
         System.out.println("GRN load created");

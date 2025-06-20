@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Parallel Test Suite" parallel="classes" thread-count="5">
+    <test name="TestNG Parallel Execution">
+        <classes>
+            <class name="AutomationTest.SalesOrderCreate"/>
+            <class name="AutomationTest.EmployeeVoucherCreation"/>
+        </classes>
+    </test>
+</suite>
