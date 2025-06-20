@@ -80,8 +80,7 @@ public class ClaimApprovalPRI
 		driver.findElement(By.xpath("//button/span[.='PROCEED']")).click();
 		
 		//store the no of records
-		String temp=driver.findElement(By.xpath("//div[contains(.,'Total Count:')]/b")).getText();
-		int records=Integer.parseInt(temp);
+		int records=Integer.parseInt(driver.findElement(By.xpath("//div[contains(.,'Total Count:')]/b")).getText());
 		
 		//move to review button
 		for (int i=0;i<records;i++)

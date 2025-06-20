@@ -1,4 +1,4 @@
-package rough;
+package excelreadingwriting;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,9 +7,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Row.MissingCellPolicy;
 
-public class SheetHandling 
+public class SheetReading
 {
     public static void main(String[] args) 
     { 
@@ -17,7 +16,7 @@ public class SheetHandling
         Workbook wb=null;
         try 
         {
-            File file=new File("D:\\VS Local repo\\Automation-Concepts\\3.0\\src\\test\\java\\data\\DataSheet.xlsx");
+            File file=new File("3.0/src/test/java/data/DataSheet.xlsx");
             fis=new FileInputStream(file);
             wb=WorkbookFactory.create(fis);
             Sheet sheet=wb.getSheet("Credentials");
