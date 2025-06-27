@@ -28,11 +28,14 @@ public class DropDownDemo
 
         //multiple selection method-1
         Select hero=new Select(driver.findElement(By.id("superheros")));
+        System.out.println("Is this multiple selection dropdown - "+hero.isMultiple());
         hero.selectByIndex(0);
         hero.selectByIndex(1);
-        List <WebElement> elements=hero.getAllSelectedOptions();
-        elements.forEach(element-> System.out.println(element.getText()));
+        List <WebElement> selectedElements=hero.getAllSelectedOptions();
+        selectedElements.forEach(element-> System.out.println(element.getText()));
         System.out.println();
+        List <WebElement> allElements=hero.getOptions();
+        allElements.forEach(element->System.out.println(element.getText()));
         hero.deselectAll();
 
         //multiple selection method-2
