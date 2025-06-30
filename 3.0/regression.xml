@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="MySuite">
+    <test name="Functional Tests">
+        <classes>
+            <class name="testNG.dispatchregression.Login"/> 
+            <class name="testNG.dispatchregression.GRNAccept"/>
+        </classes>
+    </test>
+</suite>
