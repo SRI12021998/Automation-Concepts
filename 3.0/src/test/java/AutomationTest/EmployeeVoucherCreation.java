@@ -1,14 +1,19 @@
 package AutomationTest;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -19,13 +24,29 @@ public class EmployeeVoucherCreation
 {
     WebDriver driver;
     JavascriptExecutor je;
+    Actions action;
+    Robot robot;
     @Test
-    public void EVC() 
+    public void EVC() throws AWTException 
     {
         driver=new ChromeDriver();
         je=(JavascriptExecutor)driver;
+        robot = new Robot();
         driver.get("https://bimbo03-mx-qa.ivycpg.com/web/DMS/");
-        driver.manage().window().maximize();
+        Point position = new Point(0, 0);
+        driver.manage().window().setPosition(position);
+        driver.manage().window().setSize(new org.openqa.selenium.Dimension(680, 800));
+        
+        //zoom out the screen
+        driver.switchTo().activeElement();
+        for (int a=0; a<5;a++)
+        {
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_MINUS);
+            robot.keyRelease(KeyEvent.VK_MINUS);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+        }
+        
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 
@@ -41,7 +62,7 @@ public class EmployeeVoucherCreation
 		driver.findElement(By.xpath("//a[@title='Employee Voucher Management']")).click();
 		
 		
-        int noOfVouchers=100;
+        int noOfVouchers=3;
         int amount=230;
         int voucherConcept=2;
         int user=1;
@@ -110,6 +131,7 @@ public class EmployeeVoucherCreation
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='card-alert']/div/p/i[@class='fa fa-check']")));
 		    je.executeScript("arguments[0].click();", driver.findElement(By.xpath("//div[@id='card-alert']/button")));
         }
+        driver.close();
     }
     public void waitAndClick(WebElement element)
 	{

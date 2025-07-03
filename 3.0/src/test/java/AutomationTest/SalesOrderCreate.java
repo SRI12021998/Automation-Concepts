@@ -1,4 +1,7 @@
 package AutomationTest;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -6,6 +9,7 @@ import java.util.Locale;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,7 +29,8 @@ public class SalesOrderCreate
 	private String month;
 	private String date;
 	private JavascriptExecutor je;
-	SalesOrderCreate()
+	Robot robot;
+	SalesOrderCreate() throws AWTException
 	{
 		//browser chrome
 		this.driver=new ChromeDriver();
@@ -35,7 +40,10 @@ public class SalesOrderCreate
 		this.action = new Actions(driver);
 
 		//javascriptexecutor
-		je=(JavascriptExecutor)driver;
+		this.je=(JavascriptExecutor)driver;
+
+		//robot for keyboard actions
+		robot = new Robot();
 
 		//date config
 		LocalDateTime dt=LocalDateTime.now();
@@ -50,12 +58,24 @@ public class SalesOrderCreate
 	{
 		//opens portal
 		driver.get("https://bimbo-co-01-qa.ivycpg.com/web/DMS");
-		driver.manage().window().maximize();
+		Point position = new Point(680, 0);
+        driver.manage().window().setPosition(position);
+        driver.manage().window().setSize(new org.openqa.selenium.Dimension(680, 800));
+		
+		//zoom out the screen
+		driver.switchTo().activeElement();
+        for (int a=0; a<5;a++)
+        {
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_MINUS);
+            robot.keyRelease(KeyEvent.VK_MINUS);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+        }
 		
 		//login as dispatch user
 		driver.findElement(By.id("UserName")).sendKeys("251307");
 		driver.findElement(By.name("Password")).sendKeys("1");
-		driver.findElement(By.id("Login")).click();//click
+		driver.findElement(By.id("Login")).click();
 		
 		//wait for page to load
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
