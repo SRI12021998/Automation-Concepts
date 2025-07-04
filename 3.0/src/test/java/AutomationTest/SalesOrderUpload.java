@@ -6,17 +6,21 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -150,6 +154,18 @@ public class SalesOrderUpload
 
             //wait for upload to complete and capture the process message
             wait.until(ExpectedConditions.textToBePresentInElementLocated(By.id("divShowProcess"), "Data uploaded successfully."));
+
+            //take a screenshot of the process message
+            File src=tk.getScreenshotAs(OutputType.FILE);
+            try 
+            {
+                FileHandler.copy(src,new File("D:/VS Local repo/evidence/"+System.currentTimeMillis()+".png"));
+            } 
+            catch (IOException e) 
+            {
+                e.printStackTrace();
+            }
+
             System.out.println(driver.findElement(By.id("divShowProcess")).getText());
 
         }
