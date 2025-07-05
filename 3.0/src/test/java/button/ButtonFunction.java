@@ -39,8 +39,8 @@ public class ButtonFunction
         System.out.println(rec.height + " " + rec.width);
 
         //find the button enabled or disabled
-        action.moveToElement(driver.findElement(By.tagName("button[title='Disabled button']"))).perform();
-        boolean isEnabled = driver.findElement(By.tagName("button[title='Disabled button']")).isEnabled();
+        action.moveToElement(driver.findElement(By.cssSelector("button[title='Disabled button']"))).perform();
+        boolean isEnabled = driver.findElement(By.cssSelector("button[title='Disabled button']")).isEnabled();
         System.out.println("isEnabled: " + isEnabled);
 
         //click and hold the button
