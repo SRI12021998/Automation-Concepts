@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import org.openqa.selenium.Dimension;
 
 public class EmployeeVoucherCreation 
 {
@@ -34,7 +35,7 @@ public class EmployeeVoucherCreation
         driver.get("https://bimbo03-mx-qa.ivycpg.com/web/DMS/");
         Point position = new Point(0, 0);
         driver.manage().window().setPosition(position);
-        driver.manage().window().setSize(new org.openqa.selenium.Dimension(680, 800));
+        driver.manage().window().setSize(new Dimension(680, 800));
         
         //zoom out the screen
         driver.switchTo().activeElement();
