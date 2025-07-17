@@ -2,9 +2,9 @@ package testNG.dependency;
 
 import org.testng.annotations.Test;
 
-public class DependencyTest 
+public class DependencyMethodTest 
 {
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void grnCreate()
     {
         System.out.println("Grn created successfully");
@@ -13,10 +13,11 @@ public class DependencyTest
     @Test(dependsOnMethods="grnCreate")
     public void grnAccept()
     {
+        // throw new RuntimeException("Grn acceptance failed");
         System.out.println("Grn accepted successfully");
     }
 
-    @Test(dependsOnMethods="grnAccept")
+    @Test(dependsOnMethods={ "grnCreate"})
     public void salesOrderCreation()
     {
         System.out.println("Sales order created successfully");

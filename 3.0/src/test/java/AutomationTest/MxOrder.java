@@ -15,7 +15,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 public class MxOrder 
 {
 	private WebDriver driver;
@@ -39,17 +41,17 @@ public class MxOrder
 		this.month=dt.format(DateTimeFormatter.ofPattern("MMM", Locale.ENGLISH));
 		this.date=dt.format(DateTimeFormatter.ofPattern("d"));
 	}
-
 	@Test
-	public void orderCreation() throws InterruptedException
+	@Parameters({"login","password"})
+	public void orderCreation(String login, String password) throws InterruptedException
 	{
 		//opens portal
 		driver.get("https://bimbo03-mx-qa.ivycpg.com/web/DMS/Welcome#");
 		driver.manage().window().maximize();
 		
 		//login as dispatch user
-		driver.findElement(By.id("UserName")).sendKeys("BIEP_DISP");
-		driver.findElement(By.name("Password")).sendKeys("2");
+		driver.findElement(By.id("UserName")).sendKeys(login);
+		driver.findElement(By.name("Password")).sendKeys(password);
 		driver.findElement(By.id("Login")).click();//click
 		
 		//wait for page to load
