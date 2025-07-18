@@ -1,5 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="MySuite" verbose="4">
+    <listeners>
+        <listener class-name="testNG.listeners.MySuiteListener"/>
+    </listeners>
     <test name="Functional Tests">
         <classes>
             <class name="testNG.dispatchregression.Login"/>
