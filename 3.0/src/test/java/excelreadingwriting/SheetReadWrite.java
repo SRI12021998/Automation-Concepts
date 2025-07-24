@@ -15,8 +15,8 @@ public class SheetReadWrite
 {
     public static void main(String[] args) 
     {
-        String input="3.0/src/test/java/data/DataSheet.xlsx";
-        String output="3.0/src/test/java/data/DataSheet2.xlsx";
+        String input="3.0/src/test/resources/DataSheet.xlsx";
+        String output="3.0/src/test/resources/DataSheet2.xlsx";
         sheetReadWrite( input,  output);
     }
     public static void sheetReadWrite(String input, String output)

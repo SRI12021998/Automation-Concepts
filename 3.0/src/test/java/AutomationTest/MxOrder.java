@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -43,7 +44,7 @@ public class MxOrder
 	}
 	@Test
 	@Parameters({"login","password"})
-	public void orderCreation(String login, String password) throws InterruptedException
+	public void orderCreation(String login, @Optional("1") String password ) throws InterruptedException
 	{
 		//opens portal
 		driver.get("https://bimbo03-mx-qa.ivycpg.com/web/DMS/Welcome#");

@@ -73,4 +73,13 @@
     </dependency>
   
   </dependencies>
+<!-- This build resource is added for property excel or other utility file resource-->
+    <build>
+    <testResources>
+      <testResource>
+        <directory>src/main/resources</directory>
+      </testResource>
+    </testResources>
+  </build>
+
 </project>

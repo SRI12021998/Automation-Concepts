@@ -2,23 +2,29 @@ package excelreadingwriting;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
+
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.testng.annotations.Test;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
 public class SheetReading
 {
-    public static void main(String[] args) 
+    @Test
+    public void sheetRead() 
     { 
         FileInputStream fis=null;
         Workbook wb=null;
         try 
         {
-            File file=new File("3.0/src/test/java/data/DataSheet.xlsx");
-            fis=new FileInputStream(file);
-            wb=WorkbookFactory.create(fis);
+             InputStream input=Thread.currentThread().getContextClassLoader()
+                                       .getResourceAsStream("DataSheet.xlsx");
+            // File file=new File("3.0/src/test/resources/DataSheet.xlsx");
+            // fis=new FileInputStream(file);
+            wb=WorkbookFactory.create(input);
             Sheet sheet=wb.getSheet("Credentials");
             int rowNum=sheet.getLastRowNum();
             for(int i=0;i<=rowNum;i++)
