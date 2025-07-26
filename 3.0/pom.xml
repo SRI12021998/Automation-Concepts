@@ -71,7 +71,13 @@
         <version>3.24.2</version>
         <scope>test</scope>
     </dependency>
-  
+    
+	 <dependency>
+	  	<groupId>org.seleniumhq.selenium</groupId>
+	  	<artifactId>selenium-chrome-driver</artifactId>
+	  	<version>4.19.1</version>
+	</dependency>
+
   </dependencies>
 <!-- This build resource is added for property excel or other utility file resource-->
     <build>

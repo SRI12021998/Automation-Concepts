@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [parameterSuite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="parameterTest(failed)">
-    <parameter name="login" value="BIEP_DISP"/>
+<suite name="Failed suite [ParameterSuite]" guice-stage="DEVELOPMENT">
+  <parameter name="password" value="1"/>
+  <parameter name="login" value="251307"/>
+  <parameter name="url" value="https://bimbo-co-01-qa.ivycpg.com/web/DMS"/>
+  <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="AutomationTest.MxOrder">
+      <class name="pom.test.LoginTest">
         <methods>
-          <include name="orderCreation" invocation-numbers="0"/>
+          <include name="loginCheck" invocation-numbers="0"/>
         </methods>
-      </class> <!-- AutomationTest.MxOrder -->
+      </class> <!-- pom.test.LoginTest -->
     </classes>
-  </test> <!-- parameterTest(failed) -->
-</suite> <!-- Failed suite [parameterSuite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [ParameterSuite] -->
