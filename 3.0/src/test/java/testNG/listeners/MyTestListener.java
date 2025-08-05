@@ -7,25 +7,25 @@ public class MyTestListener implements ITestListener
 {
     public void onTestStart(ITestResult result) 
     {
-        System.out.println("Its getting started"+ result.getName());
+        System.out.println("Its getting started "+ result.getName());
     }
 
 
     public void onTestSuccess(ITestResult result) 
     {
-        System.out.println("Completed successfully"+ result.getStatus());
+        System.out.println("Completed successfully "+ result.getStatus());
     }
 
 
    public void onTestFailure(ITestResult result) 
     {
-        System.out.println("Failed as expected"+ result.wasRetried());
+        System.out.println("Failed as expected "+ result.wasRetried());
     }
 
 
    public void onTestSkipped(ITestResult result) 
     {
-         System.out.println("Skipped as expected"+result.isSuccess());
+         System.out.println("Skipped as expected "+result.isSuccess());
     }
 
 

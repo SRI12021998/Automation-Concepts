@@ -3,8 +3,6 @@ package testNG.asserstion;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import dev.failsafe.internal.util.Assert;
-
 public class SoftAssertDemo
 {
     @Test
