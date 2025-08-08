@@ -78,6 +78,20 @@
 	  	<version>4.19.1</version>
 	</dependency>
 
+	    <!-- ExtentReports -->
+    <dependency>
+        <groupId>com.aventstack</groupId>
+        <artifactId>extentreports</artifactId>
+        <version>5.1.1</version>
+    </dependency>
+
+    <!-- ExtentReports TestNG Adapter (Optional) -->
+    <dependency>
+        <groupId>com.aventstack</groupId>
+        <artifactId>extentreports-testng-adapter</artifactId>
+        <version>1.2.2</version>
+    </dependency>
+    
   </dependencies>
 <!-- This build resource is added for property excel or other utility file resource-->
     <build>

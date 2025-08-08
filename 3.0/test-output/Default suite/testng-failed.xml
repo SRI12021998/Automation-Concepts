@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testNG.listeners.RetryDemo">
+      <class name="AutomationTest.EmployeeVoucherCreation">
         <methods>
-          <include name="ecuadorDispatchLogin"/>
-          <include name="setup"/>
           <include name="teardown"/>
+          <include name="EVC" invocation-numbers="1"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- testNG.listeners.RetryDemo -->
+      </class> <!-- AutomationTest.EmployeeVoucherCreation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

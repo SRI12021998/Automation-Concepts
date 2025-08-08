@@ -26,4 +26,3 @@ public class MyAnnotationTransformer implements IAnnotationTransformer
         // You can add more transformations as needed       
     }
 }
-`

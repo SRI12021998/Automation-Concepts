@@ -2,12 +2,10 @@ package AutomationTest;
 
 import java.awt.AWTException;
 import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,14 +15,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterGroups;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.openqa.selenium.Dimension;
 
 public class EmployeeVoucherCreation 
 {
@@ -67,7 +61,7 @@ public class EmployeeVoucherCreation
         return data;
     }
 //invocationCount = 2, threadPoolSize = 2,
-    @Test( dataProvider = "getData")
+    @Test( dataProvider = "getData", dataProviderClass = EmployeeVoucherCreation.class)
     public void EVC(String login, String password)
     {
         // getDriver()=new ChromeDriver();
