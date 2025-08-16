@@ -50,7 +50,7 @@ public class EmployeeVoucherCreation
         }
     }
 //parallel = true
-    @DataProvider()
+    @DataProvider(parallel = true , name = "getLoginData")
     public String[][] getData() 
     {
         String[][] data = new String[2][2];
@@ -61,7 +61,7 @@ public class EmployeeVoucherCreation
         return data;
     }
 //invocationCount = 2, threadPoolSize = 2,
-    @Test( dataProvider = "getData", dataProviderClass = EmployeeVoucherCreation.class)
+    @Test( dataProvider = "getLoginData", dataProviderClass = EmployeeVoucherCreation.class)
     public void EVC(String login, String password)
     {
         // getDriver()=new ChromeDriver();

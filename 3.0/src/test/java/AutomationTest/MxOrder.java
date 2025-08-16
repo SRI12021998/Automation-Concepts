@@ -43,7 +43,7 @@ public class MxOrder
 		this.date=dt.format(DateTimeFormatter.ofPattern("d"));
 	}
 	@Test
-	@Parameters({"login","password"})
+	@Parameters(value={"login","password"} )  //@Parameters({"login","password"} )
 	public void orderCreation(String login, @Optional("1") String password ) throws InterruptedException
 	{
 		//opens portal
