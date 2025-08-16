@@ -20,7 +20,7 @@ import org.testng.annotations.*;
 public class Annotation 
 {
 
-    @BeforeSuite
+    @BeforeSuite()
     public void beforeSuite() {
         System.out.println("1 - Before Suite");
     }
