@@ -1,9 +1,8 @@
 package excelreadingwriting;
 
-import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
-
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -32,23 +31,23 @@ public class SheetReading
                 Row row=sheet.getRow(i);
                 if(row==null)
                 {
-                    continue;
+                    continue;// Skip empty rows
                 }
                 int cellNum=sheet.getRow(0).getLastCellNum();
                     for(int j=0;j<=cellNum;j++)
                     {
                         Cell cell=row.getCell(j,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
-                        switch (sheet.getRow(i).getCell(j).getCellType()) 
+                        switch (cell.getCellType()) 
                         {
-                            case STRING: System.out.print(sheet.getRow(i).getCell(j).getStringCellValue()+" | ");
+                            case STRING: System.out.print(cell.getStringCellValue()+" | ");
                                 
                                 break;
                         
-                            case NUMERIC: System.out.print((long)sheet.getRow(i).getCell(j).getNumericCellValue()+" | ");
+                            case NUMERIC: System.out.print((long)cell.getNumericCellValue()+" | ");
                                 
                                 break;
 
-                            case BOOLEAN: System.out.print(sheet.getRow(i).getCell(j).getBooleanCellValue()+" | ");
+                            case BOOLEAN: System.out.print(cell.getBooleanCellValue()+" | ");
 
                                 break;
                         }
