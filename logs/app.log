@@ -1,0 +1,9 @@
+[2025-08-21 07:03:12] [INFO ] XmlConfiguratorExample - checking info
+[2025-08-21 07:03:12] [WARN ] XmlConfiguratorExample - checking info
+[2025-08-21 07:03:12] [ERROR] XmlConfiguratorExample - checking info
+[2025-08-21 07:03:12] [FATAL] XmlConfiguratorExample - checking info
+[2025-09-01 10:47:51] [DEBUG] XmlPropertyConfigurator - checking debug
+[2025-09-01 10:47:51] [INFO ] XmlPropertyConfigurator - checking info
+[2025-09-01 10:47:51] [WARN ] XmlPropertyConfigurator - checking info
+[2025-09-01 10:47:51] [ERROR] XmlPropertyConfigurator - checking info
+[2025-09-01 10:47:51] [FATAL] XmlPropertyConfigurator - checking info

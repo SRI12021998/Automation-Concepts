@@ -1,0 +1,13 @@
+{
+  "theme": "DARK",
+  "encoding": "utf-8",
+  "protocol": "HTTPS",
+  "timelineEnabled": false,
+  "offlineMode": true,
+  "thumbnailForBase64": true,
+  "documentTitle": "Automation Report",
+  "reportName": "Colombia QA Automation Report",
+  "timeStampFormat": "dd-MM-yyyy hh:mm:ss",
+  "js": "",
+  "css": ""
+}

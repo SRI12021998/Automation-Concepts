@@ -1,109 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-07T09:08:17 IST" name="Default suite" finished-at="2025-08-07T09:10:07 IST" duration-ms="110091">
+  <suite started-at="2025-09-02T16:26:07 IST" name="Default suite" finished-at="2025-09-02T16:26:14 IST" duration-ms="6808">
     <groups>
     </groups>
-    <test started-at="2025-08-07T09:08:17 IST" name="Default test" finished-at="2025-08-07T09:10:07 IST" duration-ms="110091">
-      <class name="AutomationTest.EmployeeVoucherCreation">
-        <test-method is-config="true" signature="setup()[pri:0, instance:AutomationTest.EmployeeVoucherCreation@1ff4931d]" started-at="2025-08-07T09:08:17 IST" name="setup" finished-at="2025-08-07T09:08:23 IST" duration-ms="5749" status="PASS">
+    <test started-at="2025-09-02T16:26:07 IST" name="Default test" finished-at="2025-09-02T16:26:14 IST" duration-ms="6808">
+      <class name="extentreport.ExtentReportInfoAdd">
+        <test-method is-config="true" signature="initialize()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-02T16:26:07 IST" name="initialize" finished-at="2025-09-02T16:26:10 IST" duration-ms="3252" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="EVC(java.lang.String,java.lang.String)[pri:0, instance:AutomationTest.EmployeeVoucherCreation@1ff4931d]" started-at="2025-08-07T09:08:23 IST" name="EVC" data-provider="getData" finished-at="2025-08-07T09:08:43 IST" duration-ms="20281" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[BIEP_ADMIN]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- initialize -->
+        <test-method signature="testBlockItalic()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-02T16:26:10 IST" name="testBlockItalic" finished-at="2025-09-02T16:26:11 IST" duration-ms="26" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EVC -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:AutomationTest.EmployeeVoucherCreation@1ff4931d]" started-at="2025-08-07T09:08:43 IST" name="teardown" finished-at="2025-08-07T09:08:44 IST" duration-ms="707" status="PASS">
+        </test-method> <!-- testBlockItalic -->
+        <test-method signature="testException()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-02T16:26:11 IST" name="testException" finished-at="2025-09-02T16:26:11 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:AutomationTest.EmployeeVoucherCreation@1ff4931d]" started-at="2025-08-07T09:08:44 IST" name="setup" finished-at="2025-08-07T09:08:48 IST" duration-ms="3880" status="PASS">
+        </test-method> <!-- testException -->
+        <test-method signature="testJson()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-02T16:26:11 IST" name="testJson" finished-at="2025-09-02T16:26:11 IST" duration-ms="153" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="EVC(java.lang.String,java.lang.String)[pri:0, instance:AutomationTest.EmployeeVoucherCreation@1ff4931d]" started-at="2025-08-07T09:08:48 IST" name="EVC" data-provider="getData" finished-at="2025-08-07T09:10:06 IST" duration-ms="78509" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Anu_Admin]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: (//ul/li/a[contains(.,'BIEP')])[1] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.19.1', revision: 'abe0ee07dc'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.184, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\sriram.b\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58016}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58016/devtoo..., se:cdpVersion: 138.0.7204.184, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 706f9fc5f62f88c6d13d343519502b20]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: (//ul/li/a[contains(.,'BIEP')])[1] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.19.1', revision: 'abe0ee07dc'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '22.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.184, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\sriram.b\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58016}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58016/devtoo..., se:cdpVersion: 138.0.7204.184, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 706f9fc5f62f88c6d13d343519502b20
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at AutomationTest.EmployeeVoucherCreation.EVC(EmployeeVoucherCreation.java:128)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:741)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+        </test-method> <!-- testJson -->
+        <test-method signature="testListData()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-02T16:26:11 IST" name="testListData" finished-at="2025-09-02T16:26:11 IST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EVC -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:AutomationTest.EmployeeVoucherCreation@1ff4931d]" started-at="2025-08-07T09:10:06 IST" name="teardown" finished-at="2025-08-07T09:10:07 IST" duration-ms="876" status="PASS">
+        </test-method> <!-- testListData -->
+        <test-method signature="testMapData()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-02T16:26:11 IST" name="testMapData" finished-at="2025-09-02T16:26:11 IST" duration-ms="3" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- AutomationTest.EmployeeVoucherCreation -->
+        </test-method> <!-- testMapData -->
+        <test-method signature="testSSCapture()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-02T16:26:11 IST" name="testSSCapture" finished-at="2025-09-02T16:26:14 IST" duration-ms="3286" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSSCapture -->
+        <test-method signature="testSetData()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-02T16:26:14 IST" name="testSetData" finished-at="2025-09-02T16:26:14 IST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSetData -->
+        <test-method signature="testXml()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-02T16:26:14 IST" name="testXml" finished-at="2025-09-02T16:26:14 IST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testXml -->
+        <test-method is-config="true" signature="generate()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-02T16:26:14 IST" name="generate" finished-at="2025-09-02T16:26:16 IST" duration-ms="2369" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generate -->
+      </class> <!-- extentreport.ExtentReportInfoAdd -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

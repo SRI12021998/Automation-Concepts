@@ -1,7 +1,10 @@
 package extentreport;
 
-import org.testng.ITestListener;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 
+import org.testng.ITestListener;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -11,7 +14,7 @@ public class ExtentReportListener implements ITestListener
 {
     ExtentReports report;
     ExtentTest test;
-    
+
     @Override
     public void onStart(org.testng.ITestContext context) 
     {
@@ -41,12 +44,18 @@ public class ExtentReportListener implements ITestListener
     @Override
     public void onTestSkipped(org.testng.ITestResult result) 
     {
-        test.log(Status.SKIP, "Test skipped");
+        test.skip("Test skipped");
     }
 
     @Override
     public void onFinish(org.testng.ITestContext context) 
     {
         report.flush();
+        try {
+			Desktop.getDesktop().browse(new File("extentReport.html").toURI());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

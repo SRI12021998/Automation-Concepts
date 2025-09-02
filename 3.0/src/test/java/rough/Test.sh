@@ -35,4 +35,4 @@ public class SeleniumScript {
 EOF
 
 # Print the Bash script's own content
-cat "$0"
+cat SeleniumScript.java

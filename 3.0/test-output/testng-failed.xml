@@ -3,13 +3,20 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="AutomationTest.EmployeeVoucherCreation">
+      <class name="extentreport.ExtentReportInfoAdd">
         <methods>
-          <include name="teardown"/>
-          <include name="EVC" invocation-numbers="1"/>
-          <include name="setup"/>
+          <include name="testBlockItalic"/>
+          <include name="testXml"/>
+          <include name="testListData"/>
+          <include name="testJson"/>
+          <include name="initialize"/>
+          <include name="testSetData"/>
+          <include name="testException"/>
+          <include name="testSSCapture"/>
+          <include name="testMapData"/>
+          <include name="generate"/>
         </methods>
-      </class> <!-- AutomationTest.EmployeeVoucherCreation -->
+      </class> <!-- extentreport.ExtentReportInfoAdd -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
