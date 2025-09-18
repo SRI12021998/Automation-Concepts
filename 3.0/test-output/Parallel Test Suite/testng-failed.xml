@@ -5,8 +5,9 @@
     <classes>
       <class name="threadlocal.ParallelActions">
         <methods>
+          <include name="teardown"/>
+          <include name="setup"/>
           <include name="ecuadorDispatchLogin"/>
-          <include name="colombiaDispatchLogin"/>
         </methods>
       </class> <!-- threadlocal.ParallelActions -->
     </classes>

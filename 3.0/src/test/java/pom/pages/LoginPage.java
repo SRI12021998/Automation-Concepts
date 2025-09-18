@@ -13,7 +13,7 @@ public class LoginPage
     public LoginPage(RemoteWebDriver driver)
     {
         this.driver=driver;
-        PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(this.driver, LoginPage.class);
     }
 
     @FindBy (id="UserName")

@@ -3,20 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="extentreport.ExtentReportInfoAdd">
+      <class name="shadow.OpenShadow">
         <methods>
-          <include name="testBlockItalic"/>
-          <include name="testXml"/>
-          <include name="testListData"/>
-          <include name="testJson"/>
-          <include name="initialize"/>
-          <include name="testSetData"/>
-          <include name="testException"/>
-          <include name="testSSCapture"/>
-          <include name="testMapData"/>
-          <include name="generate"/>
+          <include name="OpenRootDemo"/>
         </methods>
-      </class> <!-- extentreport.ExtentReportInfoAdd -->
+      </class> <!-- shadow.OpenShadow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

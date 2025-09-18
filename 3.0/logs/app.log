@@ -1,22 +1,38 @@
-[2025-08-29 22:34:46] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-29 22:34:46] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
-[2025-08-29 22:35:28] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-29 22:35:28] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
-[2025-08-30 14:00:35] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-30 14:00:35] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
-[2025-08-30 14:07:00] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-30 14:07:00] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
-[2025-08-30 14:09:31] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-30 14:09:32] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
-[2025-08-30 14:15:27] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-30 14:15:27] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
-[2025-08-31 11:28:54] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-31 11:28:54] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
-[2025-08-31 11:34:15] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-31 11:34:16] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
-[2025-08-31 11:50:09] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-31 11:50:09] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
-[2025-08-31 11:58:58] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-31 11:58:58] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
-[2025-08-31 12:02:48] [DEBUG] PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
-[2025-08-31 12:02:48] [DEBUG] PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+[25-09-10 08:04:13] [INFO ] XmlPropertyConfigurator - checking info
+[25-09-10 08:04:13] [WARN ] XmlPropertyConfigurator - checking info
+[25-09-10 08:04:13] [ERROR] XmlPropertyConfigurator - checking info
+[25-09-10 08:04:13] [FATAL] XmlPropertyConfigurator - checking info
+[25-09-10 08:05:09] [DEBUG] XmlPropertyConfigurator - checking debug
+[25-09-10 08:05:09] [INFO ] XmlPropertyConfigurator - checking info
+[25-09-10 08:05:09] [WARN ] XmlPropertyConfigurator - checking info
+[25-09-10 08:05:09] [ERROR] XmlPropertyConfigurator - checking info
+[25-09-10 08:05:09] [FATAL] XmlPropertyConfigurator - checking info
+[25-09-10 08:05:33] [INFO ] BasicConfiguratorDemo - This is a first info log message
+[25-09-10 08:05:33] [WARN ] BasicConfiguratorDemo - This is a first warn log message
+[25-09-10 08:05:33] [ERROR] BasicConfiguratorDemo - This is a first error log message
+[25-09-10 08:05:33] [FATAL] BasicConfiguratorDemo - This is a first fatal log message
+[2025-09-10 08:06:39] [DEBUG] XmlPropertyConfigurator - checking debug
+[2025-09-10 08:06:39] [INFO ] XmlPropertyConfigurator - checking info
+[2025-09-10 08:06:39] [WARN ] XmlPropertyConfigurator - checking info
+[2025-09-10 08:06:39] [ERROR] XmlPropertyConfigurator - checking info
+[2025-09-10 08:06:39] [FATAL] XmlPropertyConfigurator - checking info
+[2025-09-10 08:07:04] [DEBUG] XmlPropertyConfigurator - checking debug
+[2025-09-10 08:07:04] [INFO ] XmlPropertyConfigurator - checking info
+[2025-09-10 08:07:04] [WARN ] XmlPropertyConfigurator - checking info
+[2025-09-10 08:07:04] [ERROR] XmlPropertyConfigurator - checking info
+[2025-09-10 08:07:04] [FATAL] XmlPropertyConfigurator - checking info
+[25-09-10 08:13:57] [DEBUG] XmlPropertyConfigurator - checking debug
+[25-09-10 08:13:57] [INFO ] XmlPropertyConfigurator - checking info
+[25-09-10 08:13:57] [WARN ] XmlPropertyConfigurator - checking info
+[25-09-10 08:13:57] [ERROR] XmlPropertyConfigurator - checking info
+[25-09-10 08:13:57] [FATAL] XmlPropertyConfigurator - checking info
+[2025-09-10 08:14:22] [DEBUG] XmlPropertyConfigurator - checking debug
+[2025-09-10 08:14:22] [INFO ] XmlPropertyConfigurator - checking info
+[2025-09-10 08:14:22] [WARN ] XmlPropertyConfigurator - checking info
+[2025-09-10 08:14:22] [ERROR] XmlPropertyConfigurator - checking info
+[2025-09-10 08:14:22] [FATAL] XmlPropertyConfigurator - checking info
+[25-09-10 08:15:06] [DEBUG] XmlPropertyConfigurator - checking debug
+[25-09-10 08:15:06] [INFO ] XmlPropertyConfigurator - checking info
+[25-09-10 08:15:06] [WARN ] XmlPropertyConfigurator - checking info
+[25-09-10 08:15:06] [ERROR] XmlPropertyConfigurator - checking info
+[25-09-10 08:15:06] [FATAL] XmlPropertyConfigurator - checking info
