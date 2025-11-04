@@ -1,53 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-19T17:41:09 IST" name="Default suite" finished-at="2025-09-19T17:41:35 IST" duration-ms="26592">
+  <suite started-at="2025-10-29T17:14:02 IST" name="Default suite" finished-at="2025-10-29T17:14:15 IST" duration-ms="12577">
     <groups>
     </groups>
-    <test started-at="2025-09-19T17:41:09 IST" name="Default test" finished-at="2025-09-19T17:41:35 IST" duration-ms="26592">
-      <class name="extentreport.ExtentReportInfoAdd">
-        <test-method is-config="true" signature="initialize()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-19T17:41:09 IST" name="initialize" finished-at="2025-09-19T17:41:16 IST" duration-ms="6763" status="PASS">
+    <test started-at="2025-10-29T17:14:02 IST" name="Default test" finished-at="2025-10-29T17:14:15 IST" duration-ms="12577">
+      <class name="rough.DaneshDoubt">
+        <test-method signature="openMaster()[pri:0, instance:rough.DaneshDoubt@4b7e96a]" started-at="2025-10-29T17:14:02 IST" name="openMaster" finished-at="2025-10-29T17:14:15 IST" duration-ms="12470" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initialize -->
-        <test-method signature="testBlockItalic()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-19T17:41:16 IST" name="testBlockItalic" finished-at="2025-09-19T17:41:16 IST" duration-ms="20" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testBlockItalic -->
-        <test-method signature="testException()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-19T17:41:16 IST" name="testException" finished-at="2025-09-19T17:41:16 IST" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testException -->
-        <test-method signature="testJson()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-19T17:41:16 IST" name="testJson" finished-at="2025-09-19T17:41:16 IST" duration-ms="139" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testJson -->
-        <test-method signature="testListData()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-19T17:41:16 IST" name="testListData" finished-at="2025-09-19T17:41:16 IST" duration-ms="7" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testListData -->
-        <test-method signature="testMapData()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-19T17:41:16 IST" name="testMapData" finished-at="2025-09-19T17:41:16 IST" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testMapData -->
-        <test-method signature="testSSCapture()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-19T17:41:16 IST" name="testSSCapture" finished-at="2025-09-19T17:41:35 IST" duration-ms="19595" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testSSCapture -->
-        <test-method signature="testSetData()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-19T17:41:35 IST" name="testSetData" finished-at="2025-09-19T17:41:35 IST" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testSetData -->
-        <test-method signature="testXml()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-19T17:41:35 IST" name="testXml" finished-at="2025-09-19T17:41:35 IST" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testXml -->
-        <test-method is-config="true" signature="generate()[pri:0, instance:extentreport.ExtentReportInfoAdd@22fcf7ab]" started-at="2025-09-19T17:41:35 IST" name="generate" finished-at="2025-09-19T17:41:38 IST" duration-ms="2189" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- generate -->
-      </class> <!-- extentreport.ExtentReportInfoAdd -->
+        </test-method> <!-- openMaster -->
+      </class> <!-- rough.DaneshDoubt -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
